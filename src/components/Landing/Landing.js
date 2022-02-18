@@ -7,6 +7,7 @@ import './Landing.css';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { headerData } from '../../data/headerData';
 import { socialsData } from '../../data/socialsData';
+import pp from '../../assets/png/profile.jpeg'
 
 import {
     FaLinkedin,
@@ -101,7 +102,7 @@ function Landing() {
                     </div>
                 </div>
                 <img
-                    src={headerData.image}
+                    src={pp}
                     alt=''
                     className='landing--img'
                     style={{

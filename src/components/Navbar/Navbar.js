@@ -8,8 +8,6 @@ import { MdPhone } from 'react-icons/md';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CloseIcon from '@material-ui/icons/Close';
-import { CgSun } from "react-icons/cg/";
-import { HiMoon } from "react-icons/hi";
 
 import './Navbar.css';
 import { headerData } from '../../data/headerData';
@@ -19,7 +17,6 @@ function Navbar() {
     const { theme, setHandleDrawer } = useContext(ThemeContext);
 
     const [open, setOpen] = useState(false);
-    const [currTheme, setCurrTheme] = useState("dark");
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -131,33 +128,6 @@ function Navbar() {
             return name;
         }
     };
-
-    function changeTheme() {
-        if (currTheme === "light") {
-            // props.setTheme("dark");
-            localStorage.setItem("theme", "dark");
-            setCurrTheme("dark");
-        } else {
-            // props.setTheme("light");
-            localStorage.setItem("theme", "light");
-            setCurrTheme("light");
-        }
-    }
-
-    const icon =
-        currTheme === "dark" ? (
-            <HiMoon
-                strokeWidth={1}
-                size={20}
-                color={currTheme === "light" ? "#F9D784" : "#A7A7A7"}
-            />
-        ) : (
-            <CgSun
-                strokeWidth={1}
-                size={20}
-                color={currTheme === "light" ? "#F9D784" : "#A7A7A7"}
-            />
-        );
 
     return (
         <div className='navbar'>
@@ -278,9 +248,6 @@ function Navbar() {
                     </div>
                 </div>
             </Drawer>
-            <button onClick={changeTheme}>
-                {icon}
-            </button>
         </div>
     );
 }
