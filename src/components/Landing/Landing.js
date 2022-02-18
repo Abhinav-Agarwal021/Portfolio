@@ -69,7 +69,7 @@ function Landing() {
             <div className='landing--container'>
                 <div
                     className='landing--container-left'
-                    style={{ backgroundColor: theme.primary }}
+                    style={{ backgroundColor: theme.secondary }}
                 >
                     <div className='lcl--content'>
                         {socialsData.linkedIn && (
@@ -80,7 +80,7 @@ function Landing() {
                             >
                                 <FaLinkedin
                                     className='landing--social'
-                                    style={{ color: theme.secondary }}
+                                    style={{ color: theme.primary }}
                                     aria-label='LinkedIn'
                                 />
                             </a>
@@ -93,7 +93,7 @@ function Landing() {
                             >
                                 <FaGithub
                                     className='landing--social'
-                                    style={{ color: theme.secondary }}
+                                    style={{ color: theme.primary }}
                                     aria-label='GitHub'
                                 />
                             </a>

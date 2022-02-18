@@ -5,10 +5,11 @@ import { IoMenuSharp, IoHomeSharp } from 'react-icons/io5';
 import { HiDocumentText } from 'react-icons/hi';
 import { BsFillGearFill } from 'react-icons/bs';
 import { MdPhone } from 'react-icons/md';
-import { FaUser, FaFolderOpen } from 'react-icons/fa';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CloseIcon from '@material-ui/icons/Close';
+import { CgSun } from "react-icons/cg/";
+import { HiMoon } from "react-icons/hi";
 
 import './Navbar.css';
 import { headerData } from '../../data/headerData';
@@ -18,6 +19,7 @@ function Navbar() {
     const { theme, setHandleDrawer } = useContext(ThemeContext);
 
     const [open, setOpen] = useState(false);
+    const [currTheme, setCurrTheme] = useState("dark");
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -123,17 +125,44 @@ function Navbar() {
     const classes = useStyles();
 
     const shortname = (name) => {
-        if (name.length > 15) {
+        if (name.length > 10) {
             return name.split(' ')[0];
         } else {
             return name;
         }
     };
 
+    function changeTheme() {
+        if (currTheme === "light") {
+            // props.setTheme("dark");
+            localStorage.setItem("theme", "dark");
+            setCurrTheme("dark");
+        } else {
+            // props.setTheme("light");
+            localStorage.setItem("theme", "light");
+            setCurrTheme("light");
+        }
+    }
+
+    const icon =
+        currTheme === "dark" ? (
+            <HiMoon
+                strokeWidth={1}
+                size={20}
+                color={currTheme === "light" ? "#F9D784" : "#A7A7A7"}
+            />
+        ) : (
+            <CgSun
+                strokeWidth={1}
+                size={20}
+                color={currTheme === "light" ? "#F9D784" : "#A7A7A7"}
+            />
+        );
+
     return (
         <div className='navbar'>
             <div className='navbar--container'>
-                <h1 style={{ color: theme.secondary }}>
+                <h1 style={{ color: theme.primary }}>
                     {shortname(headerData.name)}
                 </h1>
 
@@ -197,22 +226,6 @@ function Navbar() {
 
                         <Fade left>
                             <NavLink
-                                to='/#about'
-                                smooth={true}
-                                spy='true'
-                                duration={2000}
-                            >
-                                <div className={classes.drawerItem}>
-                                    <FaUser className={classes.drawerIcon} />
-                                    <span className={classes.drawerLinks}>
-                                        About
-                                    </span>
-                                </div>
-                            </NavLink>
-                        </Fade>
-
-                        <Fade left>
-                            <NavLink
                                 to='/#resume'
                                 smooth={true}
                                 spy='true'
@@ -231,7 +244,7 @@ function Navbar() {
 
                         <Fade left>
                             <NavLink
-                                to='/#services'
+                                to='/#projects'
                                 smooth={true}
                                 spy='true'
                                 duration={2000}
@@ -241,25 +254,7 @@ function Navbar() {
                                         className={classes.drawerIcon}
                                     />
                                     <span className={classes.drawerLinks}>
-                                        Services
-                                    </span>
-                                </div>
-                            </NavLink>
-                        </Fade>
-
-                        <Fade left>
-                            <NavLink
-                                to='/#blog'
-                                smooth={true}
-                                spy='true'
-                                duration={2000}
-                            >
-                                <div className={classes.drawerItem}>
-                                    <FaFolderOpen
-                                        className={classes.drawerIcon}
-                                    />
-                                    <span className={classes.drawerLinks}>
-                                        Blog
+                                        Projects
                                     </span>
                                 </div>
                             </NavLink>
@@ -283,6 +278,9 @@ function Navbar() {
                     </div>
                 </div>
             </Drawer>
+            <button onClick={changeTheme}>
+                {icon}
+            </button>
         </div>
     );
 }

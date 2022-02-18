@@ -44,5 +44,32 @@ export const projectsData = [
         code: '',
         demo: 'https://main.duv7c7894ga9g.amplifyapp.com/',
         image: four
-    }
+    },
+    {
+        id: 5,
+        projectName: 'Life Intro (Center Pillar)',
+        projectDesc: 'This project was made for screen size 3840*2160 for a museum',
+        tags: ['React', 'CSS'],
+        code: '',
+        demo: 'https://main.dq003bqlsdcb4.amplifyapp.com/',
+        image: five
+    },
+    {
+        id: 6,
+        projectName: 'Life Intro (LBS)',
+        projectDesc: 'This project was made for screen size 3840*2160 for a museum',
+        tags: ['React', 'CSS'],
+        code: '',
+        demo: 'https://main.dy4m64h03fgdk.amplifyapp.com/',
+        image: six
+    },
+    {
+        id: 7,
+        projectName: 'Constituent assembly',
+        projectDesc: 'This project was made for screen size 1080*1920 for a museum',
+        tags: ['React', 'CSS'],
+        code: '',
+        demo: 'https://main.dyox7uw6xa3bz.amplifyapp.com/',
+        image: seven
+    },
 ]
